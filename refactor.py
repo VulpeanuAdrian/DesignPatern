@@ -1,5 +1,3 @@
-refactor.py
-
 
 
 '''
@@ -20,11 +18,10 @@ import collections
 Shapes = collections.namedtuple('Shape', ['figure', 'formula'])
 
 class Shapes:
-
+    figure=["circle","triangle","cube"]
+    formula='A = π r² , A = 1/2 × b × h , 6a2'.split(",")
     def __init__(self):
-        figure=["circle","triangle","cube",""
-        formula='A = π r² , A = 1/2 × b × h , 6a2'.split(",")
-    self._shapes = [Shapes(figure, formula) for shape in self.figure
+        self._shapes = [Shapes(figure, formula) for shape in self.figure
                        for rank in self.formula]
 
     def __len__(self):
