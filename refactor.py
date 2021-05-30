@@ -14,28 +14,6 @@ va duce la injumatatirea punctelor care pot fi primite pentru acest proiect
 '''
 
 import collections
-
-Shapes = collections.namedtuple('Shape', ['figure', 'formula'])
-
-class Shapes:
-    figure=["circle","triangle","cube"]
-    formula='A = π r² , A = 1/2 × b × h , 6a2'.split(",")
-    def __init__(self):
-        self._shapes = [Shapes(figure, formula) for shape in self.figure
-                       for rank in self.formula]
-
-    def __len__(self):
-        return len(self._shapes)
-
-    def __getitem__(self, position):
-        return self._shapes[position]
-
-
-m=Shapes()
-
-print(len(m))
-
-
 import time
 import functools
 def clock(func):
@@ -57,3 +35,36 @@ def clock(func):
          return result
 
     return clocked
+
+
+'''First Project already refactored'''
+Shapes = collections.namedtuple('Shape', ['figure', 'formula'])
+
+
+class ShapesFormula:
+    figures=["circle","triangle","cube"]
+    formulas='A = π r² , A = 1/2 × b × h , 6a2'.split(",")
+    def __init__(self):
+        self._shapes = [Shapes(figure, formula) for formula in self.formulas
+                       for figure in self.figures]
+
+    def __len__(self):
+        return len(self._shapes)
+
+    def __getitem__(self, position):
+        return self._shapes[position]
+    
+    def shuffle(self):
+        return random.shuffle(_shapes)
+        
+
+
+m=ShapesFormula()
+
+print(len(m))
+
+for i in range(3):
+    print(m[i])
+
+
+
