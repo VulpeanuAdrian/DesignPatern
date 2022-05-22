@@ -2,9 +2,9 @@ class Animal:
 
     def __init__(self, name):
         self.name = name
-
-    def make_sound(self):
-        print("silence...")
+    @staticmethod
+    def make_sound():
+        print("No sound")
 
 
 class Dog:
@@ -22,7 +22,7 @@ class Pig:
         self.animal = Animal("Pig")
 
     def make_sound(self):
-        print(f"{self.animal.name} is quitzquitz")
+        print(f"{self.animal.name} is quitzquitz ")
 
 
 class Cat:
