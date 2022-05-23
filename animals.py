@@ -1,47 +1,29 @@
-class Animal:
-
-    def __init__(self, name):
-        self.name = name
-    @staticmethod
-    def make_sound():
-        print("No sound")
-
-
 class Dog:
-
-    def __init__(self):
-        self.animal = Animal("Dog")
-
     def make_sound(self):
-        print(f"{self.animal.name} is barking !")
+        return f"{self.__class__.__name__} is barking !"
 
 
 class Pig:
 
-    def __init__(self):
-        self.animal = Animal("Pig")
-
     def make_sound(self):
-        print(f"{self.animal.name} is quitzquitz ")
+        return f"{self.__class__.__name__} is quizquiz !"
 
 
 class Cat:
+    def make_sound(self):
+        return f"{self.__class__.__name__} is meow !"
+
+
+class Animal:
 
     def __init__(self):
-        self.animal = Animal("Cat")
+        self.animal_list = [Dog(), Cat(), Pig()]
 
-    def make_sound(self):
-        print(f"{self.animal.name} is Meowing!")
+    def get_animal_sounds(self):
+        for animal in self.animal_list:
+            print(animal.make_sound())
 
 
 if __name__ == '__main__':
-
-    animals = list()
-
-    animals.append(Dog())
-    animals.append(Pig())
-    animals.append(Cat())
-
-    for animal in animals:
-        animal.make_sound()
-
+    animals = Animal()
+    animals.get_animal_sounds()
